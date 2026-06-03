@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- For Calendar Month Header (e.g., October 2025) -->
+    <style name="CalendarHeaderText">
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- For Calendar Weekdays (e.g., Mon, Tue, Wed) -->
+    <style name="CalendarWeekdayText">
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Optional: For Calendar Date numbers (1,2,3...) -->
+    <style name="CalendarDateText">
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
+</resources>

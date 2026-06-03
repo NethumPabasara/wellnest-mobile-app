@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_mood"
+    android:fitsSystemWindows="true">
+
+    <!-- ScrollView inside a FrameLayout for full background coverage -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:isScrollContainer="false"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="5dp">
+
+            <!-- ✅ Toolbar (fully visible) -->
+            <include
+                layout="@layout/toolbar_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp" />
+
+            <!-- 🌞 Question -->
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How is your mood right now?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextDark"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 🌈 Emoji Mood Selector -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/colorCard">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/emojiSelector"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp">
+
+                        <TextView
+                            android:id="@+id/emoji_love"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😍"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_happy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😊"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_relaxed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😌"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_neutral"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😐"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_anxious"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😕"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_sad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😢"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/emoji_angry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😡"
+                            android:textSize="32sp"
+                            android:padding="8dp"
+                            android:textColor="@color/colorPrimary" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 🌤 Today's Log Header -->
+            <TextView
+                android:id="@+id/tvTodayLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Mood Log"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/colorTextDark"
+                android:layout_marginBottom="6dp" />
+
+            <!-- 📋 Today's moods -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/colorCard">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTodayMoods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:padding="8dp" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- 🗓️ Calendar -->
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:mcv_showOtherDates="all"
+                app:mcv_headerTextAppearance="@style/CalendarHeaderText"
+                app:mcv_weekDayTextAppearance="@style/CalendarWeekdayText"
+                app:mcv_dateTextAppearance="@style/CalendarDateText" />
+
+            <!-- 📅 Selected date log header -->
+            <TextView
+                android:id="@+id/tvSelectedDateLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mood Log (select a date)"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/colorTextDark"
+                android:layout_marginBottom="6dp" />
+
+            <!-- 🧾 Selected date moods -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/colorCard">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMoods"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:padding="8dp" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

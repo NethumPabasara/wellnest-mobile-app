@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/bg_gradient_hydration"
+    android:fitsSystemWindows="true">
+
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/topAppBar"
+        layout="@layout/toolbar_main"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Glass Progress Row -->
+    <LinearLayout
+        android:id="@+id/glassRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView android:id="@+id/glass1" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass2" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass3" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass4" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass5" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass6" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass7" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+        <TextView android:id="@+id/glass8" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="⬜" android:textSize="28sp" android:padding="4dp"/>
+    </LinearLayout>
+
+    <!-- Progress Text -->
+    <TextView
+        android:id="@+id/tvHydrationProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="0 / 8 glasses"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/glassRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Motivation Message -->
+    <TextView
+        android:id="@+id/tvMotivation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let’s get started 💧"
+        android:textSize="16sp"
+        android:textColor="@color/colorTextDark"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHydrationProgress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Floating Add Glass Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Add Glass"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@android:color/white"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMotivation"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Scrollable Alarms Section -->
+    <ScrollView
+        android:id="@+id/alarmsScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:paddingBottom="50dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAddWater"
+        app:layout_constraintBottom_toTopOf="@id/btnResetDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvAlarmsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alarms"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Alarm 1 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 1: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 2 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 2: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 3 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 3: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 4 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 4: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 5 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 5: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 6 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 6: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 7 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 7: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+            <!-- Alarm 8 Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvAlarm8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alarm 8: Not set"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorTextDark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSetAlarm8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Reset Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnResetDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Day"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAddWater"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

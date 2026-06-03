@@ -1,0 +1,15 @@
+<resources>
+    <!-- Brand Colors -->
+    <color name="colorPrimary">#4CAF50</color> <!-- Green (wellness, habits) -->
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#03A9F4</color> <!-- Blue (hydration) -->
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#F9F9F9</color>
+    <color name="colorCard">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="colorTextDark">#212121</color>
+    <color name="colorTextLight">#757575</color>
+
+</resources>

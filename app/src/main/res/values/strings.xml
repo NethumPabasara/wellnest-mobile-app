@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WellNest</string>
+    <string name="app_logo">WellNest App Logo</string>
+    <string name="navigation_dashboard">Dashboard</string>
+    <string name="navigation_habits">Habits</string>
+    <string name="navigation_mood">Mood</string>
+    <string name="navigation_hydration">Hydration</string>
+    <string name="alarms_section">Alarms list</string>
+
+
+
+</resources>

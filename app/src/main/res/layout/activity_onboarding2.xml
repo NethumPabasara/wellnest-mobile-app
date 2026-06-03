@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Image for mood -->
+    <ImageView
+        android:src="@drawable/onboard_mood"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="Mood" />
+
+    <!-- Title -->
+    <TextView
+        android:text="Understand Your Emotions"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Caption -->
+    <TextView
+        android:text="Log moods with emojis and reflect on your mental health."
+        android:textSize="16sp"
+        android:textColor="@color/colorTextLight"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Next Button -->
+    <Button
+        android:id="@+id/btnNext2"
+        android:text="Next"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

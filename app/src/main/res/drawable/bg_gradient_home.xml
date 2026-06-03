@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Soft gradient polish -->
+    <gradient
+        android:type="linear"
+        android:angle="270"
+        android:startColor="#E8F5E9"
+    android:centerColor="#E0F7FA"
+    android:endColor="#E3F2FD"
+    android:gradientRadius="600"
+    android:dither="true" />
+
+    <!-- Optional subtle overlay to make cards pop -->
+    <corners android:radius="0dp" />
+</shape>
